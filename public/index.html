@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>IsLearning</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel = "icon" href = "https://www.pngkit.com/png/full/371-3717684_advocate-graduation-cap-logo-png.png" type = "image/x-icon">
+    
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.10.2/css/all.css"
+    />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://www.markuptag.com/bootstrap/5/css/bootstrap.min.css"
+    /> 
+    <link rel="stylesheet" type="text/css" href="css/estilo.css" />
+  </head>
+  <body>
+    <header>
+      <!-- Navbar -->           
+        <!-- Container wrapper -->
+          <!-- Toggle button -->
+          <!-- Collapsible wrapper -->
+                  <!-- Left links -->                            
+  
+                <nav class="navbar navbar-expand-lg">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+              <li class="nav-item">
+                <button
+                  type="button"
+                  class="btn_Login"
+                  id="btnModalLogin"
+                >
+                  Login
+                </button>
+              </li>
+              <li class="nav-item">
+                <button
+                  type="button"
+                  class="btn_Registar"
+                  id="btnModalRegistar"
+                >
+                  Register
+                </button>
+              </li>
+              <li class="nav-item">
+                <button
+                  type="button"
+                  class="btn_LogOFF"
+                  id="btnLogoff"
+                >
+                  Leave
+                </button>
+              </li>
+             
+              <div class="search-container">
+                <label for="searchkey"></label>
+                <input id="searchkey" type="text" placeholder="Search.." disabled/>
+                  <button type="submit"><i class="fa fa-search"></i></button>
+                
+              </div>
+            </div>
+            <h1 class = "text_title" style="color: white;">
+              <span class="notranslate">IsLearning</span>
+            </h1>
+          
+
+            </ul>
+            <!-- Left links -->
+          
+          <!-- Collapsible wrapper -->
+
+          <!-- Right elements -->
+
+
+            <!-- Notifications -->
+
+
+
+            <!-- Avatar -->
+          <!-- Right elements -->
+        </div>
+        <!-- Container wrapper -->
+      </nav>
+      <!-- Navbar -->
+    </header>
+    <section aria-label="Newest Photos">
+      
+      <div class="carousel" data-carousel>
+        
+        <ul data-slides>
+          
+          <li class="slide " data-active>
+            <img 
+              style = "background-image: url(https://cdn.discordapp.com/attachments/642107236755308561/937674171931066489/microlearning-advantages.jpeg);"
+              
+            />
+
+          </li>
+          <li class="slide" data-active>
+            <img
+            style = "background-image: url(https://cdn.discordapp.com/attachments/642107236755308561/937673376221265930/elearning-My3D.jpg);"
+              
+            />
+            
+          </li>
+          <li class="slide " data-active>
+            <img
+            style = "background-image: url(https://cdn.discordapp.com/attachments/642107236755308561/937677903259373608/important-elements-of-online-learning-courses.jpg);"
+              
+            />
+        
+          </li>
+          
+          <script>
+            var myIndex = 0;
+            carousel();
+            
+            function carousel() {
+              var i;
+              var x = document.getElementsByClassName("slide");
+              for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";  
+              }
+              myIndex++;
+              if (myIndex > x.length) {myIndex = 1}    
+              x[myIndex-1].style.display = "block";  
+              setTimeout(carousel, 2000); // Change image every 2 seconds
+            }
+            </script>
+        </ul>
+      </div>
+    </section>
+    <div class="container">
+      <hr>
+    </div>
+    
+      <button class="collapsible" type="button" id="searchbtn" class="btn btn-primary btn-lg btn-block" disabled onclick="getDisciplinas('')" >
+        <span class="notranslate">Menu</span>
+      </button>
+      <div class="contentCol" id="listaDisciplinas" style="background-color: #51A0D5; color: white;">
+          <!--conteudo a ser injetado via javascript-->
+      </div>
+      <script>
+        var slideIndex = 1;
+        showSlides(slideIndex);
+        
+        function plusSlides(n) {
+          showSlides(slideIndex += n);
+        }
+        
+        function currentSlide(n) {
+          showSlides(slideIndex = n);
+        }
+        
+        function showSlides(n) {
+          var i;
+          var slides = document.getElementsByClassName("mySlides");
+          var dots = document.getElementsByClassName("dot");
+          if (n > slides.length) {slideIndex = 1}    
+          if (n < 1) {slideIndex = slides.length}
+          for (i = 0; i < slides.length; i++) {
+              slides[i].style.display = "none";  
+          }
+          for (i = 0; i < dots.length; i++) {
+              dots[i].className = dots[i].className.replace(" active", "");
+          }
+          slides[slideIndex-1].style.display = "block";  
+          dots[slideIndex-1].className += " active";
+        }
+        </script>   
+      <script>
+        var coll = document.getElementsByClassName("collapsible");
+        var i;
+        
+        for (i = 0; i < coll.length; i++) {
+          coll[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var content = this.nextElementSibling;
+            if (content.style.maxHeight){
+              content.style.maxHeight = null;
+            } else {
+              content.style.maxHeight = content.scrollHeight + "px";
+            } 
+          });
+        }
+        </script>
+
+    
+
+
+    <!-- Modal para registar novo utilizador -->
+    <!-- se retirar o data-bs-backdrop, o modal desaparece ao clicar no fundo da página -->
+    <div
+      class="modal fade"
+      id="modalRegistar"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+      data-bs-backdrop="static"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">
+              Register new user
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div class="mb-3">
+              <label class="form-label">E-Mail</label>
+              <input
+                type="email"
+                class="form-control"
+                id="usernameRegistar"
+                name="usernameRegistar"
+                placeholder="E-Mail"
+              />
+              <p id="emailErroLoginRegistar"></p>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Password</label>
+              <input
+                type="password"
+                class="form-control"
+                id="senhaRegistar"
+                name="senhaRegistar"
+                placeholder="Senha"
+              />
+              <p id="statusRegistar"></p>
+            </div>
+            <div class="modal-footer d-block">
+              <button
+                id="btnCancelaRegistar"
+                class="btn btn-warning float-end"
+                data-bs-dismiss="modal"
+              >
+                Cancel
+              </button>
+              <button
+                class="btn btn-success float-end"
+                id="btnSubmitRegistar"
+                onclick="validaRegisto()"
+              >
+                Submit
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal para fazer login -->
+    <!-- se retirar o data-bs-backdrop, o modal desaparece ao clicar no fundo da página -->
+    <div
+      class="modal fade"
+      id="modalLogin"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+      data-bs-backdrop="static"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">
+              Insert your credentials
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+              id="btnLoginClose"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div class="mb-3">
+              <label class="form-label">E-Mail</label>
+              <input
+                type="email"
+                class="form-control"
+                id="usernameLogin"
+                name="usernameLogin"
+                placeholder="E-Mail"
+              />
+              <p id="emailErroLogin"></p>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Password</label>
+              <input
+                type="password"
+                class="form-control"
+                id="senhaLogin"
+                name="senhaLogin"
+                placeholder="Senha"
+              />
+              <p id="passErroLogin"></p>
+              <p id="statusLogin"></p>
+            </div>
+            <div class="mb-3 form-check">
+              <input type="checkbox" class="form-check-input" id="rememberMe" />
+              <label class="form-check-label" for="rememberMe"
+                >Remember-me</label
+              >
+            </div>
+            <div class="modal-footer d-block">
+              <p id="pRegistar" class="float-start">
+                No account? <a href="#" style="color: black;">Register</a>
+              </p>
+              <button class="btn btn-warning float-end" data-bs-dismiss="modal">
+                Cancel
+              </button>
+              <button
+                class="btn btn-success float-end"
+                id="btnSubmitLogin"
+                onclick="validaLogin()"
+              >
+                Submit
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+   <div class = "container">
+     <hr>
+    </div>
+    <div class="footer-basic">
+      <footer>
+          <div class="social"><a href="#"><i class="icon ion-social-instagram"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-facebook"></i></a></div>
+          <ul class="list-inline">
+              <li class="list-inline-item"><a href="https://autonoma.pt/">UAL</a></li>
+              <li class="list-inline-item"><a href="#">Services</a></li>
+              <li class="list-inline-item"><a href="#">About</a></li>
+              <li class="list-inline-item"><a href="https://ci.ual.pt/index.php/termos-e-condicoes/">Terms</a></li>
+              <li class="list-inline-item"><a href="https://ci.ual.pt/index.php/politica-de-privacidade/">Privacy Policy</a></li>
+              <li id='google_translate_element'><a></a></li>
+              <li <p>Francisco Alves nº30005382 - Tomás Coutinho nº30005619 - João Barreira nº30005630 - Nuno Barrocas nº30005711</p></li>
+          </ul>         
+      </footer>
+    </div>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+  
+  
+    
+    <!-- Bootstrap JS -->
+    <script src="https://www.markuptag.com/bootstrap/5/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+    <script src="js/users.js"></script>
+  </body>
+</html>
