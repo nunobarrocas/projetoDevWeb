@@ -17,7 +17,7 @@ buttons.forEach((button) => {
   });
 });
 
-const urlBase = "https://localhost:8888/api";
+const urlBase = `http://localhost:${process.env.PORT}/api`;
 const modalLogin = document.getElementById("modalLogin");
 const bsModalLogin = new bootstrap.Modal(modalLogin, (backdrop = "static")); // Pode passar opções
 const modalRegistar = document.getElementById("modalRegistar");
